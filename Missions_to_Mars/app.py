@@ -22,10 +22,10 @@ def home():
 
 # Route that will trigger the scrape function
 @app.route("/scrape")
-def scrape():
+def scrape_sites():
 
     # Run the scrape function
-    costa_data = scrape_costa.scrape_info()
+    costa_data = scrape_mars.scrape()
 
     # Update the Mongo database using update and upsert=True
     mongo.db.collection.update({}, costa_data, upsert=True)

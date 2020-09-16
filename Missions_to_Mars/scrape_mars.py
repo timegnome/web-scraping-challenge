@@ -27,16 +27,13 @@ def scrape():
     featured = soup.find_all("article", {"class": "carousel_item"})[0]["style"]
     featured_image_url = "https://www.jpl.nasa.gov" + re.search("\('([\w/\-\.]+)'\)", featured)[1]
 
-    featured_image_url
-
     tables = pd.read_html(url)
 
     table_df = tables[0]
     html_table = table_df.to_html()
-    html_table
 
     hemisphere_dict = [{"title" : "Cerberus Hemisphere Enhanced", "img_url" : "https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/cerberus_enhanced.tif/full.jpg"},
                       {"title" : "Schiaparelli Hemisphere Enhance", "img_url" : "https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/schiaparelli_enhanced.tif/full.jpg"},
                       {"title" : "Syrtis Major Hemisphere Enhanced", "img_url" : "https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/syrtis_major_enhanced.tif/full.jpg"},
                       {"title" : "Valles Marineris Hemisphere Enhanced", "img_url" : "https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/valles_marineris_enhanced.tif/full.jpg"}]
-    hemisphere_dict
+    return {'title' : title, 'pgraph' : pgraph, 'img_url' : featured_image_url, 'table' : html_table, 'hemi_dict' : hemisphere_dict}
