@@ -6,24 +6,36 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>First Chart</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
   <script src =app.py></script>
 </head>
 <body>
+  <!-- {{mars}} -->
+  <!-- <div id ="title">
   <h1>Mission to Mars</h1>
-  <button type="button" class="btn btn-primary btn-lg"  ><a href ="../scrape">Scrape New Mars Data</a></button>
-  <div>
+  <button type="button" class="btn btn-secondary btn-lg btn-block" ><a href ="/scrape">Scrape New Mars Data</a></button>
+</div>
+  <div id = 'Mars_news'>
   <h2>Latest Mars News</h2>
-  <h3 id = 'news_title'></h3>
-  <p id = 'pgraph'></p>
+  <h3 id = 'news_title'>{{mars.title}}</h3>
+  <p id = 'pgraph'>{{mars.pgraph}}</p>
   </div>
-  <div>
-  <h2>Featured Mars Image</h2>
-
+  <div id = 'Mars'>
+  <div class ='column'><h2>Featured Mars Image</h2>
+  <img id ='Featured' src ='{{mars.featured}}'>
   </div>
-  <div>
+  <div class ='column'><p>Mars Facts</p>
+    {{mars.table}}
+  </div>
+  </div>
+  <div id = 'Hemispheres'>
   <h2>Mars Hemispheres</h2>
+  {% for hemi in mars.hemispheres %}
+    <img id ='{{hemi.title}}' src = '{{hemi.img_url}}'>
+    <div class ='column'><p>{{hemi.title}}</p></div>
+  {% endfor %}
+  </div> -->
 
-  </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
