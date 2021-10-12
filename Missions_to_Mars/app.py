@@ -16,13 +16,14 @@ def home():
     # Find one record of data from the mongo database
     try:
         mars = mongo.db.collection.find_one()
-
+        # print(mars)
         # Return template and data
         return render_template("index.html", mars = mars)
     except:
-        return render_template('index.html')
-
-
+        # return render_template('index.html')
+        print('GFDM')
+    # return render_template('index.html')
+    return render_template("index.html", mars = mars, tables = [mars['table']])
 # Route that will trigger the scrape function
 @app.route("/scrape")
 def scrape_sites():
